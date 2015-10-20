@@ -1,6 +1,6 @@
 # Introduction
 This documents down the settings for racoon IPSec VPN server setup in AWS (using Ubuntu 14.04) with OS X (El Capitan) and Windows (ShrewSoft VPN Client) as road warriors.
-The VPN use a Pre Shared Key (PSK), so no certificate generation is needed.
+T`he VPN use a Pre Shared Key (PSK), so no certificate generation is needed.
 The routing is simple route everything through the VPN server.  This is useful if you need a US IP address.
 
 # Server Setup
@@ -19,7 +19,8 @@ The routing is simple route everything through the VPN server.  This is useful i
 
 ## Configure racoon
 1. Edit `/etc/racoon/racoon.conf` file, you can use the example in the repository.  You may want to change lines 28 - 32.
-1. Create a the PSK ```
+1. Create a the PSK
+```
 echo <GroupName> `dd if=/dev/urandom bs=1 count=18 2>/dev/null | base64` > /etc/racoon/psk.txt
 ```
   1. Replace \<GroupName\> with the GroupName you want
