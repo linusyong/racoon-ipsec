@@ -7,10 +7,10 @@ The routing is simple route everything through the VPN server.  This is useful i
 *All commands should be using root `sudo -i` or add `sudo` to all the commands.  Replace anything like \<to_be_replace\> with your own*
 
 ## AWS EC2 Instance
-1. Make sure that you boot up an EC2 instance in the region that you want the IP address to be.  Assign an Elastic IP.
+1. Make sure that you boot up an EC2 instance in the region that you want the IP address to be.  Assign an Elastic IP to the instance you booted up.
 1. To allow IPSec connection, your Security Group should have:
-  1. Custom UDP Rule UDP 4500 0.0.0.0/0 (or your restricted network)
-  1. Custom UDP Rule UDP 500 0.0.0.0/0 (or your restricted network)
+  1. Custom UDP Rule - UDP - 4500 - 0.0.0.0/0 (or your restricted network)
+  1. Custom UDP Rule - UDP - 500 - 0.0.0.0/0 (or your restricted network)
 
 ## Installation of Packages
 1. Update the system: `apt-get update && apt-get dist-upgrade`
@@ -19,9 +19,9 @@ The routing is simple route everything through the VPN server.  This is useful i
 
 ## Configure racoon
 1. Edit `/etc/racoon/racoon.conf` file, you can use the example in the repository.  You may want to change lines 28 - 32.
-1. Create a the PSK `echo <GroupName> \`dd if=/dev/urandom bs=1 count=18 2>/dev/null | base64\` > /etc/racoon/psk.txt`
-  1. Replace <GroupName> with the GroupName you want
-  1. Copy down the GroupName and generated Key in `/etc/racoon/psk.txt`
+1. Create a the PSK `echo <GroupName> `dd if=/dev/urandom bs=1 count=18 2>/dev/null | base64` > /etc/racoon/psk.txt`
+  1. Replace \<GroupName\> with the GroupName you want
+  1. Copy down the \<GroupName\> and generated Key in `/etc/racoon/psk.txt`
 1. Create the file `/etc/racoon/motd` and put in the following message:
 ```
 There are 10 types of people in this world, those who understand binary and those who dont.
