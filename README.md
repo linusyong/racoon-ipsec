@@ -4,7 +4,7 @@ The VPN use a Pre Shared Key (PSK), so no certificate generation is needed.
 The routing is simple route everything through the VPN server.  This is useful if you need a US IP address.
 
 # Server Setup
-*All commands should be using root `sudo -i` or add `sudo` to all the commands.  Replace anything like <to_be_replace> with your own*
+*All commands should be using root `sudo -i` or add `sudo` to all the commands.  Replace anything like \<to_be_replace\> with your own*
 
 ## AWS EC2 Instance
 1. Make sure that you boot up an EC2 instance in the region that you want the IP address to be.  Assign an Elastic IP.
