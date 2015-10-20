@@ -19,7 +19,9 @@ The routing is simple route everything through the VPN server.  This is useful i
 
 ## Configure racoon
 1. Edit `/etc/racoon/racoon.conf` file, you can use the example in the repository.  You may want to change lines 28 - 32.
-1. Create a the PSK `echo <GroupName> `dd if=/dev/urandom bs=1 count=18 2>/dev/null | base64` > /etc/racoon/psk.txt`
+1. Create a the PSK ```
+echo <GroupName> `dd if=/dev/urandom bs=1 count=18 2>/dev/null | base64` > /etc/racoon/psk.txt
+```
   1. Replace \<GroupName\> with the GroupName you want
   1. Copy down the \<GroupName\> and generated Key in `/etc/racoon/psk.txt`
 1. Create the file `/etc/racoon/motd` and put in the following message:
